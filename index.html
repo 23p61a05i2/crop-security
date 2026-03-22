@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Smart Crop Security Dashboard</title>
+    <style>
+        body {
+            font-family: Arial;
+            background: #f4f9f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background: #2e7d32;
+            color: white;
+            padding: 15px;
+            text-align: center;
+        }
+
+        .container {
+            padding: 20px;
+        }
+
+        .card {
+            background: white;
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        button {
+            background: #388e3c;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #1b5e20;
+        }
+
+        .alert {
+            color: red;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h2>🌾 Smart Crop Security Dashboard</h2>
+</header>
+
+<div class="container">
+
+    <div class="card">
+        <h3>Field Status</h3>
+        <p>Soil Moisture: <b>Good</b></p>
+        <p>Temperature: <b>28°C</b></p>
+        <p>Humidity: <b>60%</b></p>
+    </div>
+
+    <div class="card">
+        <h3>Security Monitoring</h3>
+        <p id="status">Status: <span style="color:green;">No Intrusion</span></p>
+        <button onclick="detectMotion()">Simulate Motion Detection</button>
+    </div>
+
+    <div class="card">
+        <h3>Recent Alerts</h3>
+        <ul id="alerts"></ul>
+    </div>
+
+</div>
+
+<script>
+function detectMotion() {
+    document.getElementById("status").innerHTML =
+        'Status: <span class="alert">⚠ Motion Detected!</span>';
+
+    const alertList = document.getElementById("alerts");
+    const li = document.createElement("li");
+    li.innerText = "Motion detected in Field A at " + new Date().toLocaleTimeString();
+    alertList.appendChild(li);
+}
+</script>
+
+</body>
+</html>
